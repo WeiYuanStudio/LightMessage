@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <title>Light Message</title>
+</head>
+<body>
+
+
+    <!--Message Send Bar-->
+    <nav class="navbar fixed-bottom">
+        <div class="card w-100">
+            <div class="card-body p-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="Msg" placeholder="Input Message Here">
+                    <div class="input-group-append">
+                        <button class="btn bg-primary" type="button" id="button-send">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        document.getElementById('button-send').onclick = function () {
+            let Msg = document.getElementById('Msg').value;
+            if(Msg === '') {
+                alert("Error");
+            }
+        };
+        // document.getElementById('alertBar').hidden = true;
+    </script>
+</body>
+</html>
