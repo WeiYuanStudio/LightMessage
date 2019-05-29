@@ -1,86 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <title>Light Message</title>
 </head>
+
 <body>
-<nav class="nav fixed-top">
-    <div class="alert-danger">Welcome To WeiYuanStudio's ChatRoom</div>
-</nav>
 
+    <!--Alert Bar-->
+    <nav class="nav fixed-top">
+        <div class="alert-danger">Welcome To WeiYuanStudio's ChatRoom</div>
+    </nav>
 
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
-<p>HelloWorld</p>
+    <!--Message-->
+    
 
-
-<!--Message Send Bar-->
-<nav class="navbar fixed-bottom">
-    <div class="card w-100">
-        <div class="card-body p-2">
-            <div class="input-group">
-                <input type="text" class="form-control" id="Msg" placeholder="请文明聊天，谢谢">
-                <div class="input-group-append">
-                    <button class="btn bg-primary" type="button" id="button-send">Send</button>
+    <!--Message Send Bar-->
+    <nav class="navbar fixed-bottom">
+        <div class="card w-100">
+            <div class="card-body p-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="Msg" placeholder="请文明聊天，谢谢">
+                    <div class="input-group-append">
+                        <button class="btn bg-primary" type="button" id="button-send">Send</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
-<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script src="node_modules/jquery/dist/jquery.js"></script>
-<script>
-    document.getElementById('button-send').onclick = function () {
-        let Msg = document.getElementById('Msg').value;
-        if (Msg === '') {
-            alert("Error");
-        } else {
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.open('POST', 'http://192.168.1.236:3939/send', true); //Todo change Target
-            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xmlhttp.send(Msg);
-            document.getElementById('Msg').value = '';
-            // document.getElementById('alertBar').hidden = true
+    </nav>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script>
+
+
+        document.getElementById('button-send').onclick = function () {
+            let Msg = document.getElementById('Msg').value;
+            if (Msg === '') {
+                alert("Error");
+            } else {
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.open('POST', 'http://192.168.1.236:3939/send', true); //Todo change Target
+                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xmlhttp.send(Msg);
+                document.getElementById('Msg').value = '';
+                // document.getElementById('alertBar').hidden = true
+            }
         }
-    }
 
 
-</script>
+    </script>
 </body>
 </html>

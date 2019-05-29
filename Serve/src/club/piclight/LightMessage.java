@@ -1,11 +1,10 @@
 package club.piclight;
 
+import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.util.Date;
-import java.util.logging.Logger;
 
 /**
  * @author WeiYuan
@@ -18,14 +17,15 @@ public class LightMessage {
     private static int serverPort = 3939; //Set Server Port
 
     public static void main(String[] args) {
-            try {
-                server = HttpServer.create(new InetSocketAddress(serverPort), 0);
-            } catch (IOException e) {
-                System.err.println("The Port " + serverPort + " Was Unable To Start Up");
-            }
+        try {
+            server = HttpServer.create(new InetSocketAddress(serverPort), 0);
+        } catch (IOException e) {
+            System.err.println("The Port " + serverPort + " Was Unable To Start Up");
+        }
 
-            server.createContext("/send", new GetMessage(messageStack));
+        server.createContext("/send", new SendMessage(messageStack));
+        server.createContext("/get", new GetMessage(messageStack));
 
-            server.start();
+        server.start();
     }
 }

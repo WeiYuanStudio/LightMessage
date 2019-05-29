@@ -1,0 +1,16 @@
+# node_modules
+*/node_modules
+
+# lib
+*/lib
+
+# java class
+*.class
+
+# VS Code config
+.vscode/settings.json
+
+# IDEA
+*/.idea
+*.iml
+Serve/out/production/Serve/META-INF/Serve.kotlin_module

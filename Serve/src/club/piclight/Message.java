@@ -7,12 +7,12 @@ import java.util.Date;
  */
 class Message{
     private Date date;//Message Time
-    private String User;//Send By
-    private String Message;//Message
+    private String user;//Send By
+    private String message;//Message
 
     public Message(Date date, String user, String message) {
         this.date = date;
-        User = user;
-        Message = message;
+        this.user = user;
+        this.message = message;
     }
 }

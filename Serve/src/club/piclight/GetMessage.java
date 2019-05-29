@@ -1,43 +1,43 @@
 package club.piclight;
 
+import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
- * Get the Message By HTTP POST Method
+ * Response the request of get message
  * @author WeiYuan
  * @version 0.1
  * @since JDK 11.0.2
  */
 public class GetMessage implements HttpHandler {
-    private String message;
     private MessageStack messageStack;
 
-    GetMessage(MessageStack messageStack){
+    public GetMessage(MessageStack messageStack) {
         this.messageStack = messageStack;
     }
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
 
-        String remoteIP = httpExchange.getRemoteAddress().getHostName(); // Visitor's IP
+        String remoteIP = httpExchange.getRemoteAddress().getHostName();
 
-        InputStream requestStream = httpExchange.getRequestBody();
+        System.out.println("Get a request from: " + remoteIP);
 
+        httpExchange.sendResponseHeaders(200,0);
 
-        message = new BufferedReader(new InputStreamReader(requestStream)).readLine();
-
-        System.out.println(message); //Todo delete
-
-        httpExchange.sendResponseHeaders( 200,0);
+        String responseBody = new Gson().toJson(messageStack);
 
         OutputStream responseStream = httpExchange.getResponseBody();
 
-        responseStream.write(("Hello World" + remoteIP).getBytes());
+        responseStream.write(responseBody.getBytes());
 
         responseStream.close();
+
+        System.out.println("Had Response Request: " + responseBody);
 
         httpExchange.close();
     }

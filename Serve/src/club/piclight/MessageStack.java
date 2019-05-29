@@ -14,7 +14,7 @@ class MessageStack {
 
     MessageStack() {
         messages = new Vector<>();
-        addMessage(new Message(new Date(),"WeiYuan's ChatBot", "Welcome To My ChatRoom")); //Add a message when start up
+        addMessage(new Message(new Date(),"WeiYuan's ChatBot", "Welcome To My ChatRoom")); //Auto add a message when start up
     }
 
     /**
