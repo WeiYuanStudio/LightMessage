@@ -43,20 +43,6 @@
 <script>
     document.getElementById('button-send').onclick = sendMessage;
 
-    function sendMessage() {
-        let Msg = document.getElementById('Msg').value;
-        if (Msg === '') {
-            alert("Please Input Your Message");
-        } else {
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.open('POST', 'http://192.168.1.236:3939/send', true); //Todo change Target
-            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xmlhttp.send(Msg);
-            document.getElementById('Msg').value = '';
-            // document.getElementById('alertBar').hidden = true
-        }
-    }
-
     Vue.component('message-item', {
         props: ['message'],
         template: '<div class="card border-dark m-3" style="max-width: 18rem;">' +
@@ -108,7 +94,39 @@
                 }
             ]
         }
-    })
+    });
+
+    function sendMessage() {
+        let Msg = document.getElementById('Msg').value;
+        if (Msg === '') {
+            alert("Please Input Your Message");
+        } else {
+            let xmlSend = new XMLHttpRequest();
+            xmlSend.open('POST', 'http://192.168.1.236:3939/send', true); //Todo change Target
+            xmlSend.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlSend.send(Msg);
+            document.getElementById('Msg').value = '';
+            // document.getElementById('alertBar').hidden = true
+        }
+    }
+
+    let xmlReceive = new XMLHttpRequest();
+
+
+
+    function getMessage() {
+        xmlReceive = new XMLHttpRequest();
+        xmlReceive.open('POST', "http://192.168.1.236:3939/get", true);
+        xmlReceive.onreadystatechange = function () {
+            if(xmlReceive.readyState === 4) {
+                let responseJSON = JSON.parse(xmlReceive.responseText);
+                messageList._data.messages = responseJSON.messages;
+                setTimeout(getMessage, 2000);
+            }
+        };
+        xmlReceive.send();
+    }
+    getMessage();
 </script>
 </body>
 </html>
