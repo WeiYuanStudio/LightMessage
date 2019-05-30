@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
     <title>Light Message</title>
 </head>
 
@@ -29,7 +29,7 @@
     <div class="card w-100">
         <div class="card-body p-2">
             <div class="input-group">
-                <input type="text" class="form-control" id="Msg" placeholder="请文明聊天，谢谢">
+                <input type="text" class="form-control" id="Msg" placeholder="Input Your Message">
                 <div class="input-group-append">
                     <button class="btn bg-primary" type="button" id="button-send">Send</button>
                 </div>
@@ -37,9 +37,9 @@
         </div>
     </div>
 </nav>
-<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script src="node_modules/jquery/dist/jquery.js"></script>
-<script src="node_modules/vue/dist/vue.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.6.10/vue.js"></script>
 <script>
     document.getElementById('button-send').onclick = sendMessage;
 
@@ -58,39 +58,9 @@
         data: {
             messages: [
                 {
-                    "date":"May 30, 2019, 1:07:55 AM",
+                    "date":"N/A",
                     "user":"WeiYuan's ChatBot",
-                    "message":"Welcome To My ChatRoom"
-                },
-                {
-                    "date":"May 30, 2019, 1:08:55 AM",
-                    "user":"192.168.1.245",
-                    "message":"ä½ å¥½å•Š"
-                },
-                {
-                    "date":"May 30, 2019, 1:08:55 AM",
-                    "user":"192.168.1.245",
-                    "message":"ä½ å¥½å•Š"
-                },
-                {
-                    "date":"May 30, 2019, 1:08:55 AM",
-                    "user":"192.168.1.245",
-                    "message":"ä½ å¥½å•Š"
-                },
-                {
-                    "date":"May 30, 2019, 1:08:55 AM",
-                    "user":"192.168.1.245",
-                    "message":"ä½ å¥½å•Š"
-                },
-                {
-                    "date":"May 30, 2019, 1:08:55 AM",
-                    "user":"192.168.1.245",
-                    "message":"ä½ å¥½å•Š"
-                },
-                {
-                    "date":"May 30, 2019, 1:08:55 AM",
-                    "user":"192.168.1.245",
-                    "message":"ä½ å¥½å•Š"
+                    "message":"Loading......"
                 }
             ]
         }
