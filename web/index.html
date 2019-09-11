@@ -72,7 +72,7 @@
             alert("Please Input Your Message");
         } else {
             let xmlSend = new XMLHttpRequest();
-            xmlSend.open('POST', 'http://192.168.1.236:3939/send', true); //Todo change Target
+            xmlSend.open('POST', './send', true); //Todo change Target
             xmlSend.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlSend.send(Msg);
             document.getElementById('Msg').value = '';
@@ -86,7 +86,7 @@
 
     function getMessage() {
         xmlReceive = new XMLHttpRequest();
-        xmlReceive.open('POST', "http://192.168.1.236:3939/get", true);
+        xmlReceive.open('GET', "./get", true);
         xmlReceive.onreadystatechange = function () {
             if(xmlReceive.readyState === 4) {
                 let responseJSON = JSON.parse(xmlReceive.responseText);
