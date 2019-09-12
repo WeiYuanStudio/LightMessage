@@ -1,33 +1,28 @@
 # Light Message
 
-## 确定需求
+一个简单的在线“聊天”室
 
-初步实现：
+![LightMessage.jpg](https://i.loli.net/2019/09/12/aoev9CgTbi8dWI4.jpg)
 
- - 做一个在线网页聊天程序，匿名，无需注册（暂不加入user部分
- - 前端可以考虑使用BootStrap响应式框架
- - Ajax交互数据，尽可能前后端解偶
- - 考虑使用json保存数据
- 
-进阶：
+## 使用方法
 
- - 增加配置文件功能，配置相关设置
-  - ~~管理员账户~~
-  - 端口
-  - 是否匿名
-  - 
- - 考虑使用数据库
- - 增加用户注册，登录功能 user
- - 增加加好友，群组功能
- 
-可能性
+去上方该项目的release里面下载最新版本的war打包文件部署到tomcat即可。
 
- - 编写客户端(电脑端与手机端）
- - Docker一键部署服务端
- 
-## 设计
+## DOCKER ~~懒人~~ 部署
 
-网络部分，网页端与聊天数据网络部分分离，不要写在一起  
-前后端解偶，静态响应nginx，降低后端服务压力
+该项目已经打包好镜像，只需要pull下我的docker镜像直接运行即可。
+或者也可以选择使用源码的Dockerfile自己进行构建，不过要注意的时Dockerfile中拉取的war是从release里面来的，如果你想完完全全自己构建，那么还需要自行编译打包war文件。
 
-## 使用
+docker pull命令
+
+```bash
+docker pull weiyuanstudio/light_message:latest
+```
+
+运行命令
+
+```bash
+docker run -d -p <host port>:8080 weiyuanstudio/light_message:latest
+```
+
+请将`<host port>`修改为你想要让Light Message运行的宿主机端口
