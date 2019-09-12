@@ -2,7 +2,7 @@
 */node_modules
 
 # lib
-*/lib
+lib/*
 
 # java class
 *.class
@@ -11,6 +11,8 @@
 .vscode/settings.json
 
 # IDEA
-*/.idea
+.idea/*
 *.iml
-Serve/out/production/Serve/META-INF/Serve.kotlin_module
+
+#out
+out/*
